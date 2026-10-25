@@ -6,7 +6,7 @@ const linkClassName =
 
 export const Navbar = () => {
   return (
-    <nav className= "bg-[black] flex justify-center items-center gap-[45px] h-[50px]">
+    <nav className= "bg-[#cb8454] flex justify-center items-center gap-[45px] h-[50px]">
       <Link className={linkClassName} to="/">
         ホーム
       </Link>

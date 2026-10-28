@@ -1,7 +1,6 @@
 import { GoogleAIBackend } from "firebase/ai";
 import { initializeApp } from "firebase/app";
 import { getAuth, GoogleAuthProvider } from "firebase/auth";
-import { GoogleAuthProvider } from "firebase/auth/web-extension";
 import { getFirestore } from "firebase/firestore";
 
 
@@ -18,6 +17,7 @@ const app = initializeApp(firebaseConfig);
 
 const auth = getAuth(app); //認証
 const provider = new GoogleAuthProvider();
+provider.setCustomParameters({ prompt: "select_account" });
 const db = getFirestore(app); //db取得
 
 export{auth, provider, db};

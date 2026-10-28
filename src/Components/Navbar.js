@@ -6,7 +6,7 @@ import { faFilePen, faHouse, faArrowRightToBracket } from "@fortawesome/free-sol
 const linkClassName =
   "text-white no-underline transition-all duration-300 hover:text-[#5f9ea0]";
 
-export const Navbar = () => {
+export const Navbar = ({isAuth}) => {
   return (
     <nav className= "bg-[#cb8454] flex justify-center items-center gap-[45px] h-[50px]">
       <Link className={linkClassName} to="/">
@@ -17,10 +17,15 @@ export const Navbar = () => {
         <FontAwesomeIcon icon={faFilePen} className="mr-[5px]" />
         記事投稿
       </Link>
-      <Link className={linkClassName} to="/Login">
+      {
+        !isAuth ? (<Link className={linkClassName} to="/Login">
         <FontAwesomeIcon icon={faArrowRightToBracket} className="mr-[5px]" />
         ログイン
-      </Link>
+        </Link>) : (<Link className={linkClassName} to="/Logout">
+        <FontAwesomeIcon icon={faArrowRightToBracket} className="mr-[5px]" />
+        ログアウト
+        </Link> )
+      }
     </nav>
   )
 }
